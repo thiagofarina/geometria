@@ -15,12 +15,12 @@ public class Retangulo implements Forma {
 	}
 
 	@Override
-	public double comprimentoLinha() {
+	public double calculaLinha() {
 		return 0;
 	}
 
 	@Override
-	public boolean contem(Ponto2D ponto) {
+	public boolean contemPonto(Ponto2D ponto) {
 		return false;
 	}
 	

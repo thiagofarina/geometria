@@ -1,7 +1,6 @@
 package br.uerj.ime.lp2.geometria.formas;
 
 import br.uerj.ime.lp2.geometria.utils.Ponto2D;
-import br.uerj.ime.lp2.geometria.utils.Vetor2D;
 
 public class Triangulo implements Forma {
 	public Triangulo(Ponto2D verticeA, Ponto2D verticeB, Ponto2D verticeC) {
@@ -13,12 +12,12 @@ public class Triangulo implements Forma {
 	}
 
 	@Override
-	public double comprimentoLinha() {
+	public double calculaLinha() {
 		return 0;
 	}
 
 	@Override
-	public boolean contem(Ponto2D ponto) {
+	public boolean contemPonto(Ponto2D ponto) {
 		return false;
 	}
 	

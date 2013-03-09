@@ -17,17 +17,17 @@ public class Circulo implements Forma {
 	}
 
 	@Override
-	public double comprimentoLinha() {
+	public double calculaLinha() {
 		return 2 * Math.PI * this.raio;
 	}
 
 	@Override
-	public boolean contem(Ponto2D ponto) {
+	public boolean contemPonto(Ponto2D ponto) {
 		return false;
 	}
 	
 	@Override
 	public String toString() {
-		return super.toString();
+		return "Circulo: Raio " + this.raio + ", centro (" + this.centro.getX() + "," + this.centro.getY() + ")";
 	}
 }

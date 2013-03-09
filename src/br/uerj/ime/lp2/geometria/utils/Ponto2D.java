@@ -33,4 +33,9 @@ public class Ponto2D {
 	public void setY(float y) {
 		this.y = y;
 	}
+
+	@Override
+	public String toString() {
+		return "Ponto (" + this.x + "," + this.y + ")";
+	}
 }

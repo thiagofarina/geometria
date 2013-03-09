@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.uerj.ime.lp2.geometria.formas.Forma;
+import br.uerj.ime.lp2.geometria.formas.Circulo;
 import br.uerj.ime.lp2.geometria.leitura.LeitorDeFormas;
 import br.uerj.ime.lp2.geometria.utils.Ponto2D;
 
