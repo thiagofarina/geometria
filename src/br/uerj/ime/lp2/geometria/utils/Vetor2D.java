@@ -10,7 +10,7 @@ public class Vetor2D {
 		this.pontoFim = pontoFim;
 
 		this.pontoEquivalente = new Ponto2D(pontoFim.getX() - pontoIni.getX(),
-				pontoFim.getY() - pontoIni.getY());
+				                            pontoFim.getY() - pontoIni.getY());
 	}
 
 	public Vetor2D(Ponto2D pontoEquivalente) {
