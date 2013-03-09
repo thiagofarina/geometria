@@ -23,9 +23,7 @@ public class Circulo implements Forma {
 
 	@Override
 	public boolean contemPonto(Ponto2D ponto) {
-		double distancia = Math.sqrt(Math.pow(centro.getX() - ponto.getX(), 2) +
-				                     Math.pow(centro.getY() - ponto.getY(), 2));
-		return distancia <= raio;
+		return centro.distancia(ponto) <= raio;
 	}
 	
 	@Override
