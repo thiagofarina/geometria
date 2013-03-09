@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 
 import br.uerj.ime.lp2.geometria.formas.Forma;
 import br.uerj.ime.lp2.geometria.leitura.LeitorDeFormas;
-import br.uerj.ime.lp2.geometria.utils.Ponto2D;
 
 public class Main {
 	public static final int CIRCULO = 1;
@@ -41,11 +40,9 @@ public class Main {
 					break;
 			}
 			
-			// Le ponto.
-			Ponto2D ponto = leitor.lePonto();
-
 			// Verifica se forma lida possui ponto.
-			formaLida.contemPonto(ponto);
+			formaLida.contemPonto(leitor.lePonto());
+
 			// Imprime resposta.
 			
 			// Armazena forma lida.
@@ -55,7 +52,7 @@ public class Main {
 		// Imprime informacoes de todas as formas lidas
 		System.out.println("Total de formas lidas: " + formasGeometricas.size());
 		for (int i = 0; i < formasGeometricas.size(); i++) {
-
+			System.out.println(formasGeometricas.get(i));
 		}
 	}
 }
