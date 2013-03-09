@@ -13,21 +13,23 @@ public class Circulo implements Forma {
 
 	@Override
 	public double calculaArea() {
-		return Math.PI * this.raio * this.raio;
+		return Math.PI * raio * raio;
 	}
 
 	@Override
 	public double calculaLinha() {
-		return 2 * Math.PI * this.raio;
+		return 2 * Math.PI * raio;
 	}
 
 	@Override
 	public boolean contemPonto(Ponto2D ponto) {
-		return false;
+		double distancia = Math.sqrt(Math.pow(centro.getX() - ponto.getX(), 2) +
+				                     Math.pow(centro.getY() - ponto.getY(), 2));
+		return distancia <= raio;
 	}
 	
 	@Override
 	public String toString() {
-		return "Circulo: Raio " + this.raio + ", centro (" + this.centro.getX() + "," + this.centro.getY() + ")";
+		return "Circulo: Raio " + raio + ", centro (" + centro.getX() + "," + centro.getY() + ")";
 	}
 }
