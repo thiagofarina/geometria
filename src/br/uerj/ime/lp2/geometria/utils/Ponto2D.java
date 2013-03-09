@@ -14,8 +14,9 @@ public class Ponto2D {
 	}
 	
 	public double distancia(Ponto2D ponto) {
-		// Distancia entre dois pontos.
-		return 0d;
+		double d1 = x - ponto.x;
+		double d2 = y - ponto.y;
+		return Math.sqrt(d1 * d1 + d2 * d2);
 	}
 
 	public float getX() {
