@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import br.uerj.ime.lp2.geometria.formas.Forma;
 import br.uerj.ime.lp2.geometria.leitura.LeitorDeFormas;
+import br.uerj.ime.lp2.geometria.utils.Ponto2D;
 
 public class Main {
 	public static final int CIRCULO = 1;
@@ -23,28 +24,33 @@ public class Main {
 		LeitorDeFormas leitor = new LeitorDeFormas(scanner);
 
 		while (scanner.hasNext()) {
-			System.out.println("Scanned: " + scanner.nextInt());
+			//System.out.println("Scanned: " + scanner.nextInt());
 			Forma formaLida = null;
+			String forma = "";
 			
 			// Descobre qual forma sera lida em seguida.
 			int tipoForma = scanner.nextInt();
+			System.out.println("TipoForma: " + tipoForma);
 			switch (tipoForma) {
 				case CIRCULO:
 					formaLida = leitor.leCirculo();
+					forma = "circulo";
 					break;
 				case RETANGULO:
 					formaLida = leitor.leRetangulo();
+					forma = "retangulo";
 					break;
 				case TRIANGULO:
 					formaLida = leitor.leTriangulo();
+					forma = "triangulo";
 					break;
 			}
 			
-			// Verifica se forma lida possui ponto.
-			formaLida.contemPonto(leitor.lePonto());
+			Ponto2D pontoLido = leitor.lePonto();
 
-			// Imprime resposta.
-			
+			// Verifica se forma lida possui ponto.
+			System.out.println(pontoLido + " contido no " + forma + ": " + formaLida.contemPonto(pontoLido));
+
 			// Armazena forma lida.
 			formasGeometricas.add(formaLida);
 		}
