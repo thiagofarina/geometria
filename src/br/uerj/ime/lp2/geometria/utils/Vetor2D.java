@@ -25,9 +25,8 @@ public class Vetor2D {
 	}
 
 	public double produtoEscalar(Vetor2D vetor) {
-		// produto vetorial calculado em cima do objeto pontoEquivalente, da
-		// classe Ponto2D de cada objeto do tipo Vetor2D envolvido
-		return 0d;
+		return (pontoEquivalente.getX() * vetor.pontoEquivalente.getX()) +
+		       (pontoEquivalente.getY() * vetor.pontoEquivalente.getY());
 	}
 
 	public Ponto2D getPontoIni() {
