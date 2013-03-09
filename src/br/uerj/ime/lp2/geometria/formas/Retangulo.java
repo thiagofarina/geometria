@@ -3,10 +3,19 @@ package br.uerj.ime.lp2.geometria.formas;
 import br.uerj.ime.lp2.geometria.utils.Ponto2D;
 
 public class Retangulo implements Forma {
-	public Retangulo(Ponto2D pontoInfEsq,
-			         Ponto2D pontoInfDir,
-			         Ponto2D pontoSupEsq,
-			         Ponto2D pontoSupDir) {
+	private Ponto2D verticeInferiorEsquerdo;
+	private Ponto2D verticeInferiorDireito;
+	private Ponto2D verticeSuperiorEsquerdo;
+	private Ponto2D verticeSuperiorDireito;
+
+	public Retangulo(Ponto2D verticeInferiorEsquerdo,
+			         Ponto2D verticeInferiorDireito,
+			         Ponto2D verticeSuperiorEsquerdo,
+			         Ponto2D verticeSuperiorDireito) {
+		this.verticeInferiorEsquerdo = verticeInferiorEsquerdo;
+		this.verticeInferiorDireito = verticeInferiorDireito;
+		this.verticeSuperiorEsquerdo = verticeSuperiorEsquerdo;
+		this.verticeSuperiorDireito = verticeSuperiorDireito;
 	}
 
 	@Override
@@ -26,6 +35,13 @@ public class Retangulo implements Forma {
 	
 	@Override
 	public String toString() {
-		return super.toString();
+		return "Retangulo: Vertices: IE (" + verticeInferiorEsquerdo.getX() + "," +
+		                                     verticeInferiorEsquerdo.getY() + ") " +
+		                            "ID (" + verticeInferiorDireito.getX() + "," +
+		                                     verticeInferiorDireito.getY() + ") " +
+		                            "SE (" + verticeSuperiorEsquerdo.getX() + "," +
+		                                     verticeSuperiorEsquerdo.getY() + ") " +
+		                            "SD (" + verticeSuperiorDireito.getX() + "," +
+		                                     verticeSuperiorDireito.getY() + ")";
 	}
 }
