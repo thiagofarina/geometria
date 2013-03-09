@@ -3,6 +3,7 @@ package br.uerj.ime.lp2.geometria;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import br.uerj.ime.lp2.geometria.formas.Forma;
 import br.uerj.ime.lp2.geometria.leitura.LeitorDeFormas;
@@ -16,14 +17,18 @@ public class Main {
 	public static void main(String[] args) {
 		List<Forma> formasGeometricas = new ArrayList<Forma>();
 		
-		Scanner in = new Scanner(System.in);
-		LeitorDeFormas leitor = new LeitorDeFormas(in);
+		Scanner scanner = new Scanner(System.in);
+		Pattern delimiters = Pattern.compile(System.getProperty("line.separator")+"|\\s");
+		scanner.useDelimiter(delimiters);
 		
-		while (in.hasNext()) {
+		LeitorDeFormas leitor = new LeitorDeFormas(scanner);
+
+		while (scanner.hasNext()) {
+			System.out.println("Scanned: " + scanner.nextInt());
 			Forma formaLida = null;
 			
 			// Descobre qual forma sera lida em seguida.
-			int tipoForma = in.nextInt();
+			int tipoForma = scanner.nextInt();
 			switch (tipoForma) {
 				case CIRCULO:
 					formaLida = leitor.leCirculo();
