@@ -46,6 +46,9 @@ public class Main {
 					break;
 			}
 			
+			if (formaLida == null)
+				break;
+
 			Ponto2D pontoLido = leitor.lePonto();
 
 			// Verifica se forma lida possui ponto.
