@@ -26,9 +26,23 @@ public class Triangulo implements Forma {
 
 	@Override
 	public boolean contemPonto(Ponto2D ponto) {
-		return MesmoLado(ponto, verticeA, verticeB, verticeC) &&
-			   MesmoLado(ponto, verticeB, verticeA, verticeC) &&
-			   MesmoLado(ponto, verticeC, verticeA, verticeB);
+		Vetor2D v0 = verticeB.subtrair(verticeA);
+		Vetor2D v1 = verticeC.subtrair(verticeA);
+		Vetor2D v2 = ponto.subtrair(verticeA);
+
+		double dot00 = v0.produtoEscalar(v0);
+		double dot01 = v0.produtoEscalar(v1);
+		double dot11 = v1.produtoEscalar(v1);
+		double dot20 = v2.produtoEscalar(v0);
+		double dot21 = v2.produtoEscalar(v1);
+
+		double denom = dot00 * dot11 - dot01 * dot01;
+
+		double v = (dot11 * dot20 - dot01 * dot21) / denom;
+		double w = (dot00 * dot21 - dot01 * dot20) / denom;
+		double u = 1 - v - w;
+
+		return (v >= 0) && (w >= 0) && (u >= 0);
 	}
 
 	@Override
@@ -36,15 +50,5 @@ public class Triangulo implements Forma {
 		return "Triangulo: Vertices: (" + verticeA.getX() + "," + verticeA.getY() + ") " +
 		                            "(" + verticeB.getX() + "," + verticeB.getY() + ") " +
 		                            "(" + verticeC.getX() + "," + verticeC.getY() + ")";
-	}
-
-	private boolean MesmoLado(Ponto2D p1,
-			                  Ponto2D p2,
-			                  Ponto2D a,
-			                  Ponto2D b) {
-		Vetor2D v1 = b.subtrair(a);
-		double cp1 = v1.produtoVetorial(p1.subtrair(a));
-		double cp2 = v1.produtoVetorial(p2.subtrair(a));
-		return false;
 	}
 }
