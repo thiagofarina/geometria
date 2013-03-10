@@ -1,6 +1,7 @@
 package br.uerj.ime.lp2.geometria.formas;
 
 import br.uerj.ime.lp2.geometria.utils.Ponto2D;
+import br.uerj.ime.lp2.geometria.utils.Vetor2D;
 
 public class Triangulo implements Forma {
 	private Ponto2D verticeA;
@@ -33,5 +34,15 @@ public class Triangulo implements Forma {
 		return "Triangulo: Vertices: (" + verticeA.getX() + "," + verticeA.getY() + ") " +
 		                            "(" + verticeB.getX() + "," + verticeB.getY() + ") " +
 		                            "(" + verticeC.getX() + "," + verticeC.getY() + ")";
+	}
+
+	private boolean MesmoLado(Ponto2D p1,
+			                  Ponto2D p2,
+			                  Ponto2D a,
+			                  Ponto2D b) {
+		Vetor2D v1 = b.subtrair(a);
+		double cp1 = v1.produtoVetorial(p1.subtrair(a));
+		double cp2 = v1.produtoVetorial(p2.subtrair(a));
+		return false;
 	}
 }
