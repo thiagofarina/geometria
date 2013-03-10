@@ -27,7 +27,9 @@ public class Retangulo implements Forma {
 
 	@Override
 	public double calculaLinha() {
-		return 0;
+		double base = verticeSuperiorEsquerdo.distancia(verticeSuperiorDireito);
+		double altura = verticeSuperiorDireito.distancia(verticeInferiorDireito);
+		return 2 * (base + altura);
 	}
 
 	@Override
