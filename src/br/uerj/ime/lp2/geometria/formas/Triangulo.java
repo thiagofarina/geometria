@@ -16,7 +16,11 @@ public class Triangulo implements Forma {
 
 	@Override
 	public double calculaArea() {
-		return 0;
+		double a = verticeB.distancia(verticeC);
+		double b = verticeA.distancia(verticeC);
+		double c = verticeA.distancia(verticeB);
+		double s = (a + b + c) / 2;
+		return Math.sqrt(s * (s - a) * (s - b) * (s - c));
 	}
 
 	@Override
