@@ -20,7 +20,9 @@ public class Retangulo implements Forma {
 
 	@Override
 	public double calculaArea() {
-		return 0;
+		double base = verticeSuperiorEsquerdo.distancia(verticeSuperiorDireito);
+		double altura = verticeSuperiorDireito.distancia(verticeInferiorDireito);
+		return base * altura;
 	}
 
 	@Override
