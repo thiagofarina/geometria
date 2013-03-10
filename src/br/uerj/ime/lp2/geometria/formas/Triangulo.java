@@ -25,7 +25,10 @@ public class Triangulo implements Forma {
 
 	@Override
 	public double calculaLinha() {
-		return 0;
+		double a = verticeB.distancia(verticeC);
+		double b = verticeA.distancia(verticeC);
+		double c = verticeA.distancia(verticeB);
+		return a + b + c;
 	}
 
 	@Override
