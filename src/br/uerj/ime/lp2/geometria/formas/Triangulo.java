@@ -26,7 +26,9 @@ public class Triangulo implements Forma {
 
 	@Override
 	public boolean contemPonto(Ponto2D ponto) {
-		return false;
+		return MesmoLado(ponto, verticeA, verticeB, verticeC) &&
+			   MesmoLado(ponto, verticeB, verticeA, verticeC) &&
+			   MesmoLado(ponto, verticeC, verticeA, verticeB);
 	}
 
 	@Override
