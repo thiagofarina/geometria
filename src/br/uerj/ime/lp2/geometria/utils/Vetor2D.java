@@ -52,4 +52,21 @@ public class Vetor2D {
 	public void setPontoEquivalente(Ponto2D pontoEquivalente) {
 		this.pontoEquivalente = pontoEquivalente;
 	}
+
+	public Vetor2D add(Vetor2D outro) {
+		float x = pontoEquivalente.getX() + outro.pontoEquivalente.getX();
+		float y = pontoEquivalente.getY() + outro.pontoEquivalente.getY();
+		return new Vetor2D(new Ponto2D(x, y));
+	}
+	
+	public Vetor2D subtrair(Vetor2D outro) {
+		float x = pontoEquivalente.getX() - outro.pontoEquivalente.getX();
+		float y = pontoEquivalente.getY() - outro.pontoEquivalente.getY();
+		return new Vetor2D(new Ponto2D(x, y));
+	}
+	
+	public Vetor2D multiplica(float valor) {
+		return new Vetor2D(new Ponto2D(valor * pontoEquivalente.getX(),
+										valor * pontoEquivalente.getY()));
+	}
 }
