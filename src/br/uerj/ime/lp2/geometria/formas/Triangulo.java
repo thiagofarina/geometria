@@ -54,8 +54,13 @@ public class Triangulo implements Forma {
 
 	@Override
 	public String toString() {
-		return "Triangulo: Vertices: (" + verticeA.getX() + "," + verticeA.getY() + ") " +
-		                            "(" + verticeB.getX() + "," + verticeB.getY() + ") " +
-		                            "(" + verticeC.getX() + "," + verticeC.getY() + ")";
+		return "Triangulo: Vertices: (" + String.format("%.0f", verticeA.getX()) + "," +
+										  String.format("%.0f", verticeA.getY()) + ") " +
+		                            "(" + String.format("%.0f", verticeB.getX()) + "," +
+		                                  String.format("%.0f", verticeB.getY()) + ") " +
+		                            "(" + String.format("%.0f", verticeC.getX()) + "," +
+		                                  String.format("%.0f", verticeC.getY()) + "), " +
+		                            "Area: " + String.format("%.01f", calculaArea()) + ", " +
+		                            "Linha: " + String.format("%.01f", calculaLinha());
 	}
 }

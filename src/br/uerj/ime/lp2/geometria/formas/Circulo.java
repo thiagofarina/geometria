@@ -28,6 +28,9 @@ public class Circulo implements Forma {
 	
 	@Override
 	public String toString() {
-		return "Circulo: Raio " + raio + ", centro (" + centro.getX() + "," + centro.getY() + ")";
+		return "Circulo: Raio " + raio + ", centro (" + String.format("%.0f", centro.getX()) + "," +
+														String.format("%.0f", centro.getY()) + "), " +
+			"Area: " + String.format("%.01f", calculaArea()) + ", " +
+			"Linha: " + String.format("%.01f", calculaLinha());
 	}
 }

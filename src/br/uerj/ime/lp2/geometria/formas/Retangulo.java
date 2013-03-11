@@ -35,29 +35,30 @@ public class Retangulo implements Forma {
 
 	@Override
 	public boolean contemPonto(Ponto2D ponto) {
-		Vetor2D p1 = new Vetor2D(new Ponto2D(verticeSuperiorEsquerdo.getX(), verticeSuperiorEsquerdo.getY()));
-		//Vetor2D p2 = new Vetor2D(new Ponto2D(verticeSuperiorDireito.getX(), verticeSuperiorDireito.getY()));
-		Vetor2D p3 = new Vetor2D(new Ponto2D(verticeInferiorDireito.getX(), verticeInferiorDireito.getY()));
-		Vetor2D p4 = new Vetor2D(new Ponto2D(verticeInferiorEsquerdo.getX(), verticeInferiorEsquerdo.getY()));
-		Vetor2D p = new Vetor2D(ponto);
-		 
-		Vetor2D p1P4 = p1.subtrair(p4);
-		Vetor2D p3P4 = p3.subtrair(p4);
-		Vetor2D TWO_P_C = (p.subtrair(p1).subtrair(p3)).multiplica(2);    // TWO_P_C= 2 P - C, C=Center of rectangle
-		 
-		return (p3P4.produtoEscalar(TWO_P_C.subtrair(p3P4)) <= 0 && p3P4.produtoEscalar(TWO_P_C.add(p3P4)) >= 0) &&
-		         (p1P4.produtoEscalar(TWO_P_C.add(p1P4)) <= 0 && p1P4.produtoEscalar(TWO_P_C.add(p1P4)) >= 0);
+		double x = ponto.getX();
+		double y = ponto.getY();
+		double x0 = verticeSuperiorEsquerdo.getX();
+		double y0 = verticeSuperiorEsquerdo.getY();
+		double x1 = verticeInferiorDireito.getX();
+		double y1 = verticeInferiorDireito.getY();
+		boolean b1 = x >= x0;
+		boolean b2 = x < x1;
+		boolean b3 = y <= y0;
+		boolean b4 = y < y1;
+		return x >= x0 && x < x1 && y <= y0 && y < y1;
 	}
 	
 	@Override
 	public String toString() {
-		return "Retangulo: Vertices: IE (" + verticeInferiorEsquerdo.getX() + "," +
-		                                     verticeInferiorEsquerdo.getY() + ") " +
-		                            "ID (" + verticeInferiorDireito.getX() + "," +
-		                                     verticeInferiorDireito.getY() + ") " +
-		                            "SE (" + verticeSuperiorEsquerdo.getX() + "," +
-		                                     verticeSuperiorEsquerdo.getY() + ") " +
-		                            "SD (" + verticeSuperiorDireito.getX() + "," +
-		                                     verticeSuperiorDireito.getY() + ")";
+		return "Retangulo: Vertices: IE (" + String.format("%.0f", verticeInferiorEsquerdo.getX()) + "," +
+											 String.format("%.0f", verticeInferiorEsquerdo.getY()) + ") " +
+		                            "ID (" + String.format("%.0f", verticeInferiorDireito.getX()) + "," +
+		                                     String.format("%.0f", verticeInferiorDireito.getY()) + ") " +
+		                            "SE (" + String.format("%.0f", verticeSuperiorEsquerdo.getX()) + "," +
+		                                     String.format("%.0f", verticeSuperiorEsquerdo.getY()) + ") " +
+		                            "SD (" + String.format("%.0f", verticeSuperiorDireito.getX()) + "," +
+		                                     String.format("%.0f",verticeSuperiorDireito.getY()) + "), " +
+		                            "Area: " + String.format("%.01f", calculaArea()) + ", " +
+		                            "Linha: " + String.format("%.01f", calculaLinha());
 	}
 }
