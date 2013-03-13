@@ -1,7 +1,6 @@
 package br.uerj.ime.lp2.geometria.formas;
 
 import br.uerj.ime.lp2.geometria.utils.Ponto2D;
-import br.uerj.ime.lp2.geometria.utils.Vetor2D;
 
 public class Retangulo implements Forma {
 	private Ponto2D verticeInferiorEsquerdo;
@@ -35,19 +34,21 @@ public class Retangulo implements Forma {
 
 	@Override
 	public boolean contemPonto(Ponto2D ponto) {
-		double x = ponto.getX();
-		double y = ponto.getY();
-		double x0 = verticeSuperiorEsquerdo.getX();
-		double y0 = verticeSuperiorEsquerdo.getY();
-		double x1 = verticeInferiorDireito.getX();
-		double y1 = verticeInferiorDireito.getY();
-		boolean b1 = x >= x0;
-		boolean b2 = x < x1;
-		boolean b3 = y <= y0;
-		boolean b4 = y < y1;
-		return x >= x0 && x < x1 && y <= y0 && y < y1;
+		double ponto_x = ponto.getX();
+		double ponto_y = ponto.getY();
+		double x = verticeInferiorEsquerdo.getX();
+		double y = verticeInferiorEsquerdo.getY();
+
+		double base = verticeSuperiorEsquerdo.distancia(verticeSuperiorDireito);
+		double altura = verticeSuperiorDireito.distancia(verticeInferiorDireito);
+
+		double direita = x + base;  // right
+		double fundo = y + altura;  // bottom
+
+		return (ponto_x >= x && ponto_x < direita &&
+		        ponto_y >= y && ponto_y < fundo);
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Retangulo: Vertices: IE (" + String.format("%.0f", verticeInferiorEsquerdo.getX()) + "," +

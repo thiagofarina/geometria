@@ -41,6 +41,6 @@ public class Ponto2D {
 
 	@Override
 	public String toString() {
-		return "Ponto (" + this.x + "," + this.y + ")";
+		return "Ponto (" + String.format("%.0f", x) + "," + String.format("%.0f", y) + ")";
 	}
 }

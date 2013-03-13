@@ -26,7 +26,7 @@ public class Main {
 		
 		LeitorDeFormas leitor = new LeitorDeFormas(scanner);
 
-		/*while (scanner.hasNext()) {
+		while (scanner.hasNext()) {
 			//System.out.println("Scanned: " + scanner.nextInt());
 			Forma formaLida = null;
 			String forma = "";
@@ -59,7 +59,7 @@ public class Main {
 
 			// Armazena forma lida.
 			formasGeometricas.add(formaLida);
-		}*/
+		}
 		
 		formasGeometricas.add(new Circulo(new Ponto2D(1, 2), 5));
 		formasGeometricas.add(new Retangulo(new Ponto2D(6, 8), new Ponto2D(11, 8),
