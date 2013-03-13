@@ -27,13 +27,11 @@ public class Main {
 		LeitorDeFormas leitor = new LeitorDeFormas(scanner);
 
 		while (scanner.hasNext()) {
-			//System.out.println("Scanned: " + scanner.nextInt());
 			Forma formaLida = null;
 			String forma = "";
 			
 			// Descobre qual forma sera lida em seguida.
 			int tipoForma = scanner.nextInt();
-			//System.out.println("TipoForma: " + tipoForma);
 			switch (tipoForma) {
 				case CIRCULO:
 					formaLida = leitor.leCirculo();
@@ -66,7 +64,7 @@ public class Main {
 				new Ponto2D(6, 12), new Ponto2D(11,12)));
 		formasGeometricas.add(new Triangulo(new Ponto2D(-4, 2), new Ponto2D(2, -2), new Ponto2D(4, 4)));
 		
-		// Imprime informacoes de todas as formas lidas
+		// Imprime informacoes de todas as formas lidas.
 		System.out.println("Total de formas lidas: " + formasGeometricas.size());
 		for (int i = 0; i < formasGeometricas.size(); i++) {
 			System.out.println(formasGeometricas.get(i));
